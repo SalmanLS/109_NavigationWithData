@@ -70,7 +70,7 @@ fun HalamanDua(
                 }
                 OutlinedButton(
                     modifier = Modifier.fillMaxWidth(),
-                    onClick = {onCancelButtonClicked}
+                    onClick = onCancelButtonClicked
                 ) {
                     Text(stringResource(id = R.string.cancel))
                 }
