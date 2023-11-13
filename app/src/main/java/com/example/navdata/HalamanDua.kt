@@ -30,7 +30,7 @@ fun HalamanDua(
     val items = listOf(
         Pair(stringResource(id = R.string.quantity), orderUIState.jumlah),
         Pair(stringResource(id = R.string.flavor), orderUIState.rasa),
-        )
+    )
     val contact = listOf(
         Pair(stringResource(id = R.string.namap), orderUIState.nama),
         Pair(stringResource(id = R.string.nomorp), orderUIState.tlp),
@@ -40,22 +40,19 @@ fun HalamanDua(
         modifier = modifier,
         verticalArrangement = Arrangement.SpaceBetween
     ) {
-        Column (
-            modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_medium)),
-            verticalArrangement = Arrangement.spacedBy(dimensionResource(id = R.dimen.padding_small))
-        ){
-            contact.forEach{ item ->
-                Text(item.first, fontWeight = FontWeight.Bold)
-                Text(text = item.second)
-            }
-            Divider(
-                thickness = dimensionResource(id = R.dimen.thickness_divider)
-            )
-        }
         Column(
             modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_medium)),
             verticalArrangement = Arrangement.spacedBy(dimensionResource(id = R.dimen.padding_small))
         ) {
+            contact.forEach { item ->
+                Column {
+                    Text(item.first, fontWeight = FontWeight.Bold)
+                    Text(text = item.second)
+                }
+                Divider(
+                    thickness = dimensionResource(id = R.dimen.thickness_divider)
+                )
+            }
             items.forEach { item ->
                 Column {
                     Text(item.first.uppercase())

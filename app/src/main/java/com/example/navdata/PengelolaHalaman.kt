@@ -58,6 +58,7 @@ fun NavDataAppBar(
     )
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun NavDataApp(
     viewModel: OrderViewModel = viewModel(),
@@ -83,8 +84,11 @@ fun NavDataApp(
                     }
                 )
             }
-            composable(route = PengelolaHalaman.Contact.name){
-
+            composable(route = PengelolaHalaman.Contact.name) {
+                HalamanForm(onSubmitButtonClicked = {
+                    viewModel.setContact(it)
+                    navController.navigate(PengelolaHalaman.Rasa.name)
+                })
             }
             composable(route = PengelolaHalaman.Rasa.name) {
                 val context = LocalContext.current

@@ -62,7 +62,7 @@ fun HalamanForm(
 
 
         Spacer(modifier = Modifier.height(15.dp))
-        Button(onClick = { /*TODO*/ }) {
+        Button(onClick = { onSubmitButtonClicked(listData) }) {
             Text(text = stringResource(id = R.string.confirm))
         }
     }
