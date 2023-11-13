@@ -29,10 +29,12 @@ import com.example.navdata.data.SumberData.flavors
 
 enum class PengelolaHalaman {
     Home,
+    Contact,
     Rasa,
     Summary
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun NavDataAppBar(
     bisaNavigasiBack: Boolean,
@@ -77,9 +79,12 @@ fun NavDataApp(
             composable(route = PengelolaHalaman.Home.name) {
                 HalamanHome(
                     onNextButtonClicked = {
-                        navController.navigate(PengelolaHalaman.Rasa.name)
+                        navController.navigate(PengelolaHalaman.Contact.name)
                     }
                 )
+            }
+            composable(route = PengelolaHalaman.Contact.name){
+
             }
             composable(route = PengelolaHalaman.Rasa.name) {
                 val context = LocalContext.current
