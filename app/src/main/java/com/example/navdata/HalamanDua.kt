@@ -26,20 +26,37 @@ fun HalamanDua(
     onCancelButtonClicked: () -> Unit,
     //onSendButtonClicked: (String, String) -> Unit,
     modifier: Modifier = Modifier
-){
+) {
     val items = listOf(
         Pair(stringResource(id = R.string.quantity), orderUIState.jumlah),
-        Pair(stringResource(id = R.string.flavor), orderUIState.rasa)
+        Pair(stringResource(id = R.string.flavor), orderUIState.rasa),
+        )
+    val contact = listOf(
+        Pair(stringResource(id = R.string.namap), orderUIState.nama),
+        Pair(stringResource(id = R.string.nomorp), orderUIState.tlp),
+        Pair(stringResource(id = R.string.alamatp), orderUIState.alamat),
     )
-    Column (
+    Column(
         modifier = modifier,
         verticalArrangement = Arrangement.SpaceBetween
-    ){
+    ) {
         Column (
             modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_medium)),
             verticalArrangement = Arrangement.spacedBy(dimensionResource(id = R.dimen.padding_small))
         ){
-            items.forEach{ item ->
+            contact.forEach{ item ->
+                Text(item.first, fontWeight = FontWeight.Bold)
+                Text(text = item.second)
+            }
+            Divider(
+                thickness = dimensionResource(id = R.dimen.thickness_divider)
+            )
+        }
+        Column(
+            modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_medium)),
+            verticalArrangement = Arrangement.spacedBy(dimensionResource(id = R.dimen.padding_small))
+        ) {
+            items.forEach { item ->
                 Column {
                     Text(item.first.uppercase())
                     Text(text = item.second.toString(), fontWeight = FontWeight.Bold)
@@ -54,14 +71,14 @@ fun HalamanDua(
                 modifier = Modifier.align(Alignment.End)
             )
         }
-        Row (
+        Row(
             modifier = Modifier
                 .weight(1f, false)
                 .padding(dimensionResource(id = R.dimen.padding_medium))
-        ){
-            Column (
+        ) {
+            Column(
                 verticalArrangement = Arrangement.spacedBy(dimensionResource(id = R.dimen.padding_small))
-            ){
+            ) {
                 Button(
                     modifier = Modifier.fillMaxWidth(),
                     onClick = {}

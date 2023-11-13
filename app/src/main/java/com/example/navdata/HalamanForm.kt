@@ -1,5 +1,3 @@
-@file:OptIn(ExperimentalMaterial3Api::class)
-
 package com.example.navdata
 
 import androidx.compose.foundation.layout.Arrangement
@@ -21,6 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HalamanForm(
     onSubmitButtonClicked: (MutableList<String>) -> Unit
@@ -44,14 +43,6 @@ fun HalamanForm(
             )
         }
         )
-        OutlinedTextField(value = alamatTxt, onValueChange = { alamatTxt = it }, label = {
-            Text(
-                text = stringResource(
-                    id = R.string.alamatp
-                )
-            )
-        }
-        )
         OutlinedTextField(value = tlpnTxt, onValueChange = { tlpnTxt = it }, label = {
             Text(
                 text = stringResource(
@@ -60,6 +51,15 @@ fun HalamanForm(
             )
         }
         )
+        OutlinedTextField(value = alamatTxt, onValueChange = { alamatTxt = it }, label = {
+            Text(
+                text = stringResource(
+                    id = R.string.alamatp
+                )
+            )
+        }
+        )
+
 
         Spacer(modifier = Modifier.height(15.dp))
         Button(onClick = { /*TODO*/ }) {
